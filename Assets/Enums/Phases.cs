@@ -19,7 +19,7 @@ namespace Assets.Enums
         [Description("Combat")]
         Combat,
 
-        [Description("Non Combat")]
+        [Description("Non-Combat")]
         NonCombat,
 
         [Description("Mobilization")]

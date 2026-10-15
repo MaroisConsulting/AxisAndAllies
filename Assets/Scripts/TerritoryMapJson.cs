@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
-using Models;
+using GamePieces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -20,7 +20,7 @@ public static class TerritoryMapJson
         public string Name;
         // Sibling indices disambiguate duplicate names at any hierarchy depth.
         public string Path;
-        public TerritoryModel Territory;
+        public Territory Territory;
         public bool NeighborsManuallyEdited;
     }
 
@@ -80,7 +80,7 @@ public static class TerritoryMapJson
     // Import may instantiate only types already defined in this game's model assembly.
     private class ModelBinder : ISerializationBinder
     {
-        private static readonly Dictionary<string, Type> Allowed = typeof(TerritoryModel).Assembly
+        private static readonly Dictionary<string, Type> Allowed = typeof(Territory).Assembly
             .GetTypes().Where(t => t.IsPublic && !t.IsAbstract && !t.ContainsGenericParameters &&
                 (t.Namespace == "Models" || t.Namespace == "Assets.Models"))
             .ToDictionary(t => t.FullName, t => t);
