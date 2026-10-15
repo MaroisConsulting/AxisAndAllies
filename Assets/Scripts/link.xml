@@ -1,0 +1,8 @@
+<linker>
+  <!-- Json.NET discovers model fields and concrete piece types through reflection. -->
+  <assembly fullname="Assembly-CSharp">
+    <type fullname="Models.*" preserve="all" />
+    <type fullname="Assets.Models.*" preserve="all" />
+    <type fullname="TerritoryMapJson*" preserve="all" />
+  </assembly>
+</linker>
